@@ -230,10 +230,12 @@ public struct Easing : EaseFunction {
     
     // expo
     public static let easeInExpo    = Easing { (_t,b,c,d) -> CGFloat in
-        return (_t==0) ? b : c * pow(2, 10 * (_t/d - 1)) + b
+        let n = c * pow(2, 10 * (_t/d - 1)) + b
+        return (_t==0) ? b : n
     }
     public static let easeOutExpo   = Easing { (_t,b,c,d) -> CGFloat in
-        return (_t==d) ? b+c : c * (-pow(2, -10 * _t/d) + 1) + b
+        let n = c * (-pow(2, -10 * _t/d) + 1) + b
+        return (_t==d) ? b+c : n
     }
     public static let easeInOutExpo = Easing { (_t,b,c,d) -> CGFloat in
         if _t==0{ return b }
@@ -250,12 +252,14 @@ public struct Easing : EaseFunction {
     
     // sine
     public static let easeInSine    = Easing { (_t,b,c,d) -> CGFloat in
-        return -c * cos(_t/d * (CGFloat.pi/2)) + c + b
+        let n = _t/d * (CGFloat.pi/2)
+        return -c * cos(n) + c + b
     }
     public static let easeOutSine   = Easing { (_t,b,c,d) -> CGFloat in
         return c * sin(_t/d * (CGFloat.pi/2)) + b
     }
     public static let easeInOutSine = Easing { (_t,b,c,d) -> CGFloat in
-        return -c/2 * (cos(CGFloat.pi*_t/d) - 1) + b
+        let n = CGFloat.pi*_t/d
+        return -c/2 * (cos(n) - 1) + b
     }
 }

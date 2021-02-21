@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name          = "SmoothGradient"
-    spec.version       = "0.0.1"
+    spec.version       = "0.0.2"
     spec.summary       = "Swift CGGradient extension to smooth gradients into a gentler transition"
     spec.description   = "iOS Smooth Gradients using Penners's Easing Functions"
     spec.homepage      = "https://github.com/janselv/smooth-gradient"
